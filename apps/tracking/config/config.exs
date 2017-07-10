@@ -28,9 +28,3 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
-
-config :sentry,
-  enable_source_code_context: true,
-  root_source_code_path: File.cwd!,
-  dsn: "https://116d03fb69a64381a05fc1839e436875:46b5521a4c6b498d9c630bb311a88c49@sentry.io/189860",
-  use_error_logger: true

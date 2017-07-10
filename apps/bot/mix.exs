@@ -15,13 +15,12 @@ defmodule Bot.Mixfile do
   end
 
   def application do
-    [extra_applications: [:logger, :sentry, :nostrum],
+    [extra_applications: [:logger, :nostrum],
      mod: {Bot, []}]
   end
 
   defp deps do
     [{:nostrum, git: "https://github.com/Kraigie/nostrum.git", branch: "staging-refactor"},
-     {:tracking, in_umbrella: true},
-     {:sentry, "~> 4.0.3"}]
+     {:tracking, in_umbrella: true}]
   end
 end

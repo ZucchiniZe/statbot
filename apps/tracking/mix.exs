@@ -15,12 +15,11 @@ defmodule Tracking.Mixfile do
   end
 
   def application do
-    [extra_applications: [:logger, :sentry],
+    [extra_applications: [:logger],
      mod: {Tracking.Application, []}]
   end
   
   defp deps do
-    [{:nostrum, git: "https://github.com/Kraigie/nostrum.git", branch: "staging-refactor"},
-     {:sentry, "~> 4.0.3"}]
+    [{:nostrum, git: "https://github.com/Kraigie/nostrum.git", branch: "staging-refactor"}]
   end
 end
