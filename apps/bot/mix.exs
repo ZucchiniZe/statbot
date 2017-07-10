@@ -21,6 +21,7 @@ defmodule Bot.Mixfile do
 
   defp deps do
     [{:nostrum, git: "https://github.com/Kraigie/nostrum.git", branch: "staging-refactor"},
-     {:tracking, in_umbrella: true}]
+     {:tracking, in_umbrella: true},
+     {:logger_file_backend, "~> 0.0.10"}]
   end
 end
