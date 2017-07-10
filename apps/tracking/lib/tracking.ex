@@ -43,17 +43,25 @@ defmodule Tracking do
   end
 
   def handle_cast({:new_message, message}, files) do
-    # Since we can't get the guild_id from the message, we need to make a call to the discord api
+    # Since we can't tell if the channel is private from the message, we need to make a call to the discord api
     {:ok, channel} = Api.get_channel(message.channel_id)
-    file = files[String.to_integer(channel["guild_id"])]
 
-    log_entry = log_string message, channel
+    # check if the channel is a DM channel
+    if channel["type"] == 1 do
+      {:noreply, files}
+    else
+      {_, guild} = Nostrum.Cache.Guild.GuildServer.get(channel_id: message.channel_id)
 
-    Logger.log :info, "new message ingested"
-    Logger.log :debug, log_entry
+      file = files[guild.id]
 
-    IO.write(file, log_entry <> "\n")
-    {:noreply, files}
+      log_entry = log_string message, channel
+
+      Logger.log :info, "new message ingested"
+      Logger.log :debug, log_entry
+
+      IO.write(file, log_entry <> "\n")
+      {:noreply, files}
+    end
   end
 
   defp log_string(message, channel) do

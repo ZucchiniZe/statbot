@@ -5,7 +5,7 @@ defmodule Bot.Consumer do
 
   def start_link do
     Tracking.start_link
-    Consumer.start_link(__MODULE__, %{})
+    Consumer.start_link(__MODULE__)
   end
 
   def handle_event({:MESSAGE_CREATE, {msg}, _ws_state}, state) do

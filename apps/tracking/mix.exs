@@ -20,6 +20,6 @@ defmodule Tracking.Mixfile do
   end
   
   defp deps do
-    [{:nostrum, git: "https://github.com/Kraigie/nostrum.git"}]
+    [{:nostrum, git: "https://github.com/Kraigie/nostrum.git", branch: "staging-refactor"}]
   end
 end
