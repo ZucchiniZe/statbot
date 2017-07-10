@@ -18,8 +18,3 @@ erl_crash.dump
 
 # Also ignore archive artifacts (built via "mix archive.build").
 *.ez
-
-# Ignore the data directory, it's just a dumping ground for events
-data/
-
-secrets.exs
