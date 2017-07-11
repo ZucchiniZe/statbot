@@ -1,8 +1,9 @@
 use Mix.Config
 
 config :logger,
-  level: :info,
-  backends: [{LoggerFileBackend, :error_log},
+  level: :error,
+  backends: [:console,
+             {LoggerFileBackend, :error_log},
              {LoggerFileBackend, :info_log}]
 
 config :logger, :error_log,

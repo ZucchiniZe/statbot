@@ -24,4 +24,4 @@ data/
 
 secrets.exs
 
-logs/
+logs/*.log
